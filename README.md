@@ -1,2 +1,2 @@
 # Microservice-Demo
-Project microservice .NET Core 6
+Project microservice .NET Core 5
