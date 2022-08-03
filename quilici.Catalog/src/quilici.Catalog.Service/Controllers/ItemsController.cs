@@ -11,7 +11,7 @@ namespace quilici.Catalog.Service.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItensController : ControllerBase
+    public class ItemsController : ControllerBase
     {
         private readonly ItemsRepository itemsRepository = new();
 
@@ -72,7 +72,7 @@ namespace quilici.Catalog.Service.Controllers
             if (item == null)
                 return NotFound();
 
-            await itemsRepository.RemoveAsync(item);
+            await itemsRepository.RemoveAsync(item.Id);
 
             return NoContent();
 
