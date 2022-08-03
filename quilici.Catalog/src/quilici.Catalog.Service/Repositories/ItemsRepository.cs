@@ -15,7 +15,7 @@ namespace quilici.Catalog.Service.Repositories
 
         public ItemsRepository()
         {
-            var mongoClient = new MongoClient("mongodb://localhost:27017");
+            var mongoClient = new MongoClient("mongodb://192.168.115.128:27017");
             var database = mongoClient.GetDatabase("Catalog");
             dbColletcion = database.GetCollection<Item>(collectionName);
         }
