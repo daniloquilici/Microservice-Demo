@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using quilici.Catalog.Service.Repositories;
 using quilici.Catalog.Service.Settings;
@@ -24,6 +26,9 @@ namespace quilici.Catalog.Service
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            BsonSerializer.RegisterSerializer(new GuidSerializer(MongoDB.Bson.BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(MongoDB.Bson.BsonType.String));
+            
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
             services.AddSingleton(serviceProvider =>
@@ -41,7 +46,7 @@ namespace quilici.Catalog.Service
             });
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "quilici.Catalog.Service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroserviceDemo - Catalog", Version = "v1" });
             });
         }
 
