@@ -6,32 +6,32 @@ using System.Threading.Tasks;
 
 namespace quilici.Catalog.Service.Repositories
 {
-    public class ItemsRepository
+    public class ItemsRepository : IItemsRepository
     {
         private const string collectionName = "items";
 
         private readonly IMongoCollection<Item> dbColletcion;
         private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
 
-        public ItemsRepository()
+        public ItemsRepository(IMongoDatabase database)
         {
-            var mongoClient = new MongoClient("mongodb://192.168.115.128:27017");
-            var database = mongoClient.GetDatabase("Catalog");
+            //var mongoClient = new MongoClient("mongodb://192.168.115.128:27017");
+            //var database = mongoClient.GetDatabase("Catalog");
             dbColletcion = database.GetCollection<Item>(collectionName);
         }
 
-        public async Task<IReadOnlyCollection<Item>> GetAllAsync() 
+        public async Task<IReadOnlyCollection<Item>> GetAllAsync()
         {
-            return await dbColletcion.Find(filterBuilder.Empty).ToListAsync();   
+            return await dbColletcion.Find(filterBuilder.Empty).ToListAsync();
         }
 
-        public async Task<Item> GetAsync(Guid id) 
+        public async Task<Item> GetAsync(Guid id)
         {
             FilterDefinition<Item> filter = filterBuilder.Eq(entity => entity.Id, id);
             return await dbColletcion.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task CreateAsync(Item entity) 
+        public async Task CreateAsync(Item entity)
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
@@ -39,7 +39,7 @@ namespace quilici.Catalog.Service.Repositories
             await dbColletcion.InsertOneAsync(entity);
         }
 
-        public async Task UpdateAsync(Item entity) 
+        public async Task UpdateAsync(Item entity)
         {
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
@@ -48,7 +48,7 @@ namespace quilici.Catalog.Service.Repositories
             await dbColletcion.ReplaceOneAsync(filter, entity);
         }
 
-        public async Task RemoveAsync(Guid id) 
+        public async Task RemoveAsync(Guid id)
         {
             FilterDefinition<Item> filter = filterBuilder.Eq(entity => entity.Id, id);
             await dbColletcion.DeleteOneAsync(filter);
