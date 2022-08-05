@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quilici.Common", "quilici.Common.csproj", "{B89F4552-85C6-4D41-9A98-2619D93007EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B89F4552-85C6-4D41-9A98-2619D93007EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B89F4552-85C6-4D41-9A98-2619D93007EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B89F4552-85C6-4D41-9A98-2619D93007EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B89F4552-85C6-4D41-9A98-2619D93007EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11A07C83-750C-4B73-83D0-FA324743CC1D}
+	EndGlobalSection
+EndGlobal

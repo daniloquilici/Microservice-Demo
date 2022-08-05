@@ -4,10 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using MongoDB.Driver;
 using quilici.Catalog.Service.Entities;
-using quilici.Catalog.Service.Repositories;
-using quilici.Catalog.Service.Settings;
+using quilici.Common.MongoDB;
+using quilici.Common.Settings;
 
 namespace quilici.Catalog.Service
 {
@@ -26,7 +25,7 @@ namespace quilici.Catalog.Service
         public void ConfigureServices(IServiceCollection services)
         {
             serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
-            
+
             services.AddMongo().AddMongoRepository<Item>("items");
 
             services.AddControllers(options =>

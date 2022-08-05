@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quilici.Common;
+using System;
 
 namespace quilici.Catalog.Service.Entities
 {

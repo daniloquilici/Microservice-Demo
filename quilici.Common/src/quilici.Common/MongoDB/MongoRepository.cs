@@ -1,10 +1,10 @@
 ﻿using MongoDB.Driver;
-using quilici.Catalog.Service.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace quilici.Catalog.Service.Repositories
+namespace quilici.Common.MongoDB
 {
     public class MongoRepository<T> : IRepository<T> where T : IEntity
     {
@@ -21,9 +21,19 @@ namespace quilici.Catalog.Service.Repositories
             return await dbColletcion.Find(filterBuilder.Empty).ToListAsync();
         }
 
+        public async Task<IReadOnlyCollection<T>> GetAllAsync(Expression<Func<T, bool>> filter)
+        {
+            return await dbColletcion.Find(filter).ToListAsync();
+        }
+
         public async Task<T> GetAsync(Guid id)
         {
             FilterDefinition<T> filter = filterBuilder.Eq(entity => entity.Id, id);
+            return await dbColletcion.Find(filter).FirstOrDefaultAsync();
+        }
+
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter)
+        {
             return await dbColletcion.Find(filter).FirstOrDefaultAsync();
         }
 

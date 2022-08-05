@@ -1,19 +1,19 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
-using quilici.Catalog.Service.Entities;
-using quilici.Catalog.Service.Settings;
+using quilici.Common.Settings;
 
-namespace quilici.Catalog.Service.Repositories
+namespace quilici.Common.MongoDB
 {
     public static class Extensions
     {
         public static IServiceCollection AddMongo(this IServiceCollection services)
         {
-            BsonSerializer.RegisterSerializer(new GuidSerializer(MongoDB.Bson.BsonType.String));
-            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(MongoDB.Bson.BsonType.String));
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+            BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
             services.AddSingleton(serviceProvider =>
             {
@@ -27,7 +27,7 @@ namespace quilici.Catalog.Service.Repositories
             return services;
         }
 
-        public static IServiceCollection AddMongoRepository<T>(this IServiceCollection services, string collectionName) where T : IEntity 
+        public static IServiceCollection AddMongoRepository<T>(this IServiceCollection services, string collectionName) where T : IEntity
         {
             services.AddSingleton<IRepository<T>>(serviceProvide =>
             {

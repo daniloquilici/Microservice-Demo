@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace quilici.Catalog.Service.Entities
+namespace quilici.Common
 {
     public interface IEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace quilici.Catalog.Service.Settings
+﻿namespace quilici.Common.Settings
 {
     public class ServiceSettings
     {

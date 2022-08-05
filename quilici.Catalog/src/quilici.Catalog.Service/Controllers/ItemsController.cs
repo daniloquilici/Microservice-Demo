@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using quilici.Catalog.Service.Entities;
-using quilici.Catalog.Service.Repositories;
+using quilici.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
