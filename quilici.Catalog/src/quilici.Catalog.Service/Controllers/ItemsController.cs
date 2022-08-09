@@ -73,7 +73,7 @@ namespace quilici.Catalog.Service.Controllers
 
             await itemsRepository.UpdateAsync(existingItem);
 
-            await publishEndpoint.Publish(new CatalogItemUpdate(existingItem.Id, existingItem.Name, existingItem.Description));
+            await publishEndpoint.Publish(new CatalogItemUpdated(existingItem.Id, existingItem.Name, existingItem.Description));
 
             return NoContent();
         }
@@ -87,7 +87,7 @@ namespace quilici.Catalog.Service.Controllers
 
             await itemsRepository.RemoveAsync(item.Id);
 
-            await publishEndpoint.Publish(new CatalogItemDelete(id));
+            await publishEndpoint.Publish(new CatalogItemDeleted(id));
 
             return NoContent();
 

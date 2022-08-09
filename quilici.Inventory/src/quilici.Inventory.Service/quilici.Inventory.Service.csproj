@@ -5,8 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="7.1.4" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="6.0.7" />
-    <PackageReference Include="quilici.Common" Version="1.0.0" />
+    <PackageReference Include="quilici.Catalog.Contracts" Version="1.0.0" />
+    <PackageReference Include="quilici.Common" Version="1.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
