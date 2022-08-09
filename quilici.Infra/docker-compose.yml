@@ -12,7 +12,7 @@ services:
       - mongodbdata:/data/db
 
   rabbitmq:
-    image: rabbitmq:managemente
+    image: rabbitmq:management
     container_name: rabbitmq
     ports:
       - 5672:5672
