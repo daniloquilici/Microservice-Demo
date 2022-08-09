@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quilici.Catalog.Service", "quilici.Catalog.Service.csproj", "{F92214A0-6D17-4E60-BB33-DBE4BD9B335E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quilici.Catalog.Service", "quilici.Catalog.Service.csproj", "{F92214A0-6D17-4E60-BB33-DBE4BD9B335E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "quilici.Catalog.Contracts", "..\quilici.Catalog.Contracts\quilici.Catalog.Contracts.csproj", "{B243C688-C881-42A2-9EE8-EDF52694E6A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F92214A0-6D17-4E60-BB33-DBE4BD9B335E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F92214A0-6D17-4E60-BB33-DBE4BD9B335E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F92214A0-6D17-4E60-BB33-DBE4BD9B335E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B243C688-C881-42A2-9EE8-EDF52694E6A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B243C688-C881-42A2-9EE8-EDF52694E6A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B243C688-C881-42A2-9EE8-EDF52694E6A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B243C688-C881-42A2-9EE8-EDF52694E6A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
